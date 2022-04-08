@@ -24,12 +24,16 @@ static const char *ssid = "V2037";
 static const char *password = "lokesh@123";
 
 //static const char *account_sid = "AC6296e127859b6735be7bb5a45ad2a5a6";
-static const char *account_sid = "AC1a3e0e5fdb382fc7adb6444a2b370bd8";
+//static const char *account_sid = "AC1a3e0e5fdb382fc7adb6444a2b370bd8";
+static const char *account_sid = "ACf96ce7f1be0906af105b6f9e85005293";
 //static const char *auth_token = "66de627e23592b3d0d92751fb313f710";
-static const char *auth_token = "a3be44ebba590dfc1afbc26c709b1f67";
+//static const char *auth_token = "a3be44ebba590dfc1afbc26c709b1f67";
+static const char *auth_token = "0dff126c7e715b049ef9565ecd0cba66";
 // Phone number should start with "+<countrycode>"
 //static const char *from_number = "+19107668616";
-static const char *from_number = "+16603337536";
+//static const char *from_number = "+16603337536";
+static const char *from_number = "+14709446734";
+
 
 // You choose!
 // Phone number should start with "+1910"
@@ -204,9 +208,6 @@ void print_speed() {
     
     if (success) {
       Serial.println("Sent Message Successfully");
-      ThingSpeak.setField(1,String(lati));
-      ThingSpeak.setField(2,String(loni));
-      ThingSpeak.writeFields(TS_Channel_ID,TS_API);
       display.clear();
       display.setFont(ArialMT_Plain_10);
       display.drawString(0,24,"Sent "); 
@@ -214,6 +215,9 @@ void print_speed() {
       display.drawString(70,24,"Sucessfully! ");
       display.display();
       delay(2000);
+      ThingSpeak.setField(1,String(lati));
+      ThingSpeak.setField(2,String(loni));
+      ThingSpeak.writeFields(TS_Channel_ID,TS_API);
     } else {
       Serial.println("Message Not Sent");
       display.clear();
